@@ -1,12 +1,13 @@
 Name: Ritchey&AI Hash Stdin With SHA-256
 Implementation: 1
-Version: 1
-Long Identifier: Ritchey&AI Hash Stdin With SHA-256 i1 v1
-Short Identifier: R&AIHSWSi1v1
+Version: 2
+Long Identifier: Ritchey&AI Hash Stdin With SHA-256 i1 v2
+Short Identifier: R&AIHSWSi1v2
 Description: An EXPERIMENTAL program for hashing data passed to stdin with SHA-256. Read the notes before using!
 History:
  - Project started May 22, 2024.
  - Version 1 completed May 22, 2024.
+ - Version 2 completed May 22, 2024.
 Author: James Daniel Marrs Ritchey
 Licensing: As is, this project is licensed under the CC0 1.0 Universal (https://creativecommons.org/publicdomain/zero/1.0/legalcode). However, if you compile this project's code, the compiler will bring in, or link to, foreign materials (e.g., headers, libraries, etc), which have their own licensing terms. As such, compiled binaries will have different licensing terms.
 Notes:
