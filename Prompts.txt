@@ -1,0 +1,42 @@
+jamesdanielmarrsritchey: Using C++, write a program which reads from stdin, and hashes it with SHA-256. The program should return the checksum, unless nothing is recieved from stdin, in which case it should return bool false, and exit 1.
+
+jamesdanielmarrsritchey: Using C++, write a program which reads from stdin, and hashes it with SHA-256. The program should return the checksum, unless nothing is recieved from stdin, in which case it should return bool false, and exit 1. Do this without using OpenSSL.
+
+GitHub Copilot: To hash a string with SHA-256 in C++ without using OpenSSL, you can use the Crypto++ library. Here's a simple program that reads from stdin and hashes the input with SHA-256. If nothing is received from stdin, the program returns false and exits with status code 1.
+
+First, you need to install the Crypto++ library. You can do this on a Linux machine by running the following command in the terminal:
+
+```bash
+sudo apt-get install libcrypto++-dev libcrypto++-doc libcrypto++-utils
+```
+
+Then, you can use the following C++ code:
+
+```cpp
+#include <cryptopp/sha.h>
+#include <cryptopp/filters.h>
+#include <cryptopp/hex.h>
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string line;
+    if (!std::getline(std::cin, line) || line.empty()) {
+        return 1;
+    }
+
+    CryptoPP::SHA256 hash;
+    std::string digest;
+
+    CryptoPP::StringSource s(line, true, 
+        new CryptoPP::HashFilter(hash, 
+            new CryptoPP::HexEncoder(
+                new CryptoPP::StringSink(digest))));
+
+    std::cout << digest << std::endl;
+
+    return 0;
+}
+```
+
+This program reads a line from stdin, hashes it with SHA-256, and prints the hash in hexadecimal format. If no input is received from stdin, the program returns 1.
